@@ -1,4 +1,10 @@
 // Buttons
+const displayNameButton = document.querySelector('#display-name-button');
+
+displayNameButton.addEventListener('click', () => {
+    const displayName = document.querySelector('#display-name');
+    displayName.classList.remove('invisible');
+});
 
 // Mouse Over
 const toggleLight = document.querySelector("#light-bulb");
@@ -22,11 +28,6 @@ function toggleAlert() {
 
 // Validate
 // Use bootstrap validation: https://getbootstrap.com/docs/4.5/components/forms/#server-side
-// When the form with id "form-validate" is submitted,
-// - prevent the default event from firing
-// - check the length of the input with id "form-validate-first-name"
-// - if the length is greater than 2, add "is-valid" class to the input, remove the "is-invalid" class
-// - if the length if less than 2, add "is-invalid" class to the input, remove the "is-valid" class
 
 const form = document.querySelector('#form-validate');
 const firstName = document.querySelector('#form-validate-first-name');
@@ -49,7 +50,13 @@ form.addEventListener('submit', (event) => {
 // - get the value from the input with the id "form-hobby-text"
 // - use the vlaue to create a new li with the class "list-group-item"
 // - add the li to the ul with the id "hobby-list"
+const hobbyForm = document.querySelector('#form-hobby');
 
+hobbyForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+
+})
 
 
 // Challenge: Lists (Part 2)
