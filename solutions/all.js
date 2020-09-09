@@ -3,10 +3,10 @@
 // the "invisible" class from the alert with id "display-name"
 const displayNameButton = document.querySelector('#display-name-button');
 
-displayNameButton.onclick = () => {
+displayNameButton.addEventListener('click', () => {
     const displayName = document.querySelector('#display-name');
     displayName.classList.remove('invisible');
-};
+});
 
 // Mouse Over
 // When the mouse hovers over the image with id "light-bulb", change
@@ -15,13 +15,13 @@ displayNameButton.onclick = () => {
 
 const lightBulb = document.querySelector('#light-bulb');
 
-lightBulb.onmouseenter = () => {
+lightBulb.addEventListener('mouseenter', () => {
     lightBulb.src = 'images/light-bulb-on.png';
-};
+});
 
-lightBulb.onmouseleave = () => {
+lightBulb.addEventListener('mouseleave', () => {
     lightBulb.src = 'images/light-bulb-off.png';
-}
+});
 
 // Toggle
 // Clicking the button with id "toggle-button" should toggle the visibility
@@ -32,7 +32,7 @@ let isToggled = false;
 const toggleButton = document.querySelector('#toggle-button');
 const toggleAlert = document.querySelector('#toggle-alert');
 
-toggleButton.onclick = () => {
+toggleButton.addEventListener('click', () => {
     if (isToggled) {
         isToggled = false;
         toggleAlert.classList.add('invisible');
@@ -42,9 +42,10 @@ toggleButton.onclick = () => {
         toggleAlert.classList.remove('invisible');
         toggleButton.innerHTML = 'Off';
     }
-}
+});
 
 // Validate
+// Use bootstrap validation: https://getbootstrap.com/docs/4.5/components/forms/#server-side
 // When the form with id "form-validate" is submitted,
 // - prevent the default event from firing
 // - check the length of the input with id "form-validate-first-name"
@@ -54,9 +55,8 @@ toggleButton.onclick = () => {
 const formValidate = document.querySelector('#form-validate');
 const formValidateFirstName = document.querySelector('#form-validate-first-name');
 
-formValidate.onsubmit = (event) => {
+formValidate.addEventListener('submit', (event) => {
     event.preventDefault();
-    event.stopPropagation();
 
     if (formValidateFirstName.value.length > 2) {
         formValidateFirstName.classList.add('is-valid');
@@ -65,7 +65,7 @@ formValidate.onsubmit = (event) => {
         formValidateFirstName.classList.add('is-invalid');
         formValidateFirstName.classList.remove('is-valid');
     }
-}
+});
 
 // Challenge: Lists
 // When the form with the id "form-hobby" is submitted
@@ -78,15 +78,14 @@ const formHobby = document.querySelector('#form-hobby');
 const formHobbyText = document.querySelector('#form-hobby-text');
 const hobbyList = document.querySelector('#hobby-list');
 
-formHobby.onsubmit = (event) => {
+formHobby.addEventListener('submit', (event) => {
     event.preventDefault();
-    event.stopPropagation();
 
     const newHobby = document.createElement('li');
     newHobby.innerText = formHobbyText.value
     newHobby.classList.add('list-group-item');
     hobbyList.appendChild(newHobby);
-}
+});
 
 // Challenge: Lists (Part 2)
 // When the ul with the id "hobby-list-2" is clicked
@@ -97,10 +96,10 @@ formHobby.onsubmit = (event) => {
 
 const hobbyList2 = document.querySelector('#hobby-list-2');
 
-hobbyList2.onclick = (event) => {
+hobbyList2.addEventListener('click', (event) => {
     if (event.target.classList.contains('remove-hobby')) {
         event.preventDefault();
         const parentLi = event.target.parentElement;
         hobbyList2.removeChild(parentLi);
     }
-}
+});

@@ -8,9 +8,8 @@
 const formValidate = document.querySelector('#form-validate');
 const formValidateFirstName = document.querySelector('#form-validate-first-name');
 
-formValidate.onsubmit = (event) => {
+formValidate.addEventListener('submit', (event) => {
     event.preventDefault();
-    event.stopPropagation();
 
     if (formValidateFirstName.value.length > 2) {
         formValidateFirstName.classList.add('is-valid');
@@ -19,4 +18,4 @@ formValidate.onsubmit = (event) => {
         formValidateFirstName.classList.add('is-invalid');
         formValidateFirstName.classList.remove('is-valid');
     }
-}
+});
